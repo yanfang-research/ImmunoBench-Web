@@ -10,16 +10,6 @@ This website presents benchmark results, datasets, and model comparisons through
 
 ---
 
-## 📂 Project Structure
-ImmunoBench/
-│
-├── index.html # Main webpage (static, self-contained)
-├── assets/ # Optional folder for images, icons, or JSON data
-├── README.md # Project description
-└── LICENSE # (optional) Choose a license such as MIT or CC-BY 4.0
-
----
-
 ## 🖥️ Features
 
 - 🧠 **Benchmark Overview:** Foundation model performance across multiple pathology tasks.  
