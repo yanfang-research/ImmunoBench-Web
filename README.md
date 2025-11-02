@@ -1,16 +1,32 @@
-# ImmunoBench
+# 🧫 ImmunoBench
 
+**ImmunoBench** is an open, interactive benchmark for **immunohistochemistry-driven computational pathology**, providing standardized evaluation across multiple tasks, datasets, and foundation models.  
+This website presents benchmark results, datasets, and model comparisons through an elegant dark-mode interface built with **Tailwind CSS** and **Chart.js**.
 
 ---
 
-## 🧰 Tech Stack
+## 🌐 Live Website
+👉 **[Visit ImmunoBench on GitHub Pages](https://YOUR_GITHUB_USERNAME.github.io/ImmunoBench/)**
 
-| Component | Description |
-|------------|--------------|
-| **HTML + Tailwind CSS** | For elegant, responsive design |
-| **Chart.js** | For model performance visualization |
-| **JavaScript** | For dynamic rendering of metrics and task cards |
-| **GitHub Pages** | For free static site hosting |
+---
+
+## 📂 Project Structure
+ImmunoBench/
+│
+├── index.html # Main webpage (static, self-contained)
+├── assets/ # Optional folder for images, icons, or JSON data
+├── README.md # Project description
+└── LICENSE # (optional) Choose a license such as MIT or CC-BY 4.0
+
+---
+
+## 🖥️ Features
+
+- 🧠 **Benchmark Overview:** Foundation model performance across multiple pathology tasks.  
+- 🧾 **Task Details:** Clickable cards for each task with AUC / ACC / F1 or C-index metrics.  
+- 🧬 **Datasets Section:** Public and private multi-institutional datasets with stain types and patient counts.  
+- 📊 **Charts & Tables:** Interactive visualization powered by Chart.js and Tailwind components.  
+- 📱 **Responsive Layout:** Works seamlessly on both desktop and mobile.
 
 ---
 
@@ -37,3 +53,5 @@ If you use or reference this benchmark, please cite:
 
 This project is released under the **MIT License** (or you can use **CC BY 4.0** if preferred).  
 Feel free to reuse or adapt with proper attribution.
+
+
