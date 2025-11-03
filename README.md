@@ -59,6 +59,7 @@ If you use or refer to **ImmunoBench** in your research, please cite:
 ## 🧑‍⚖️ License
 
 This project is released under the **MIT License**.  
+
 ---
 
 ⭐ *If you find this project useful, please consider starring the repository!*
