@@ -50,9 +50,9 @@ If you use or refer to **ImmunoBench** in your research, please cite:
 ## 📬 Contact
 
 **Maintainer:** [Your Full Name]  
-**Affiliation:** [e.g., University of Oslo / Shanghai AI Lab]  
-**Email:** [your.email@domain.com]  
-**Website:** [https://YOUR_GITHUB_USERNAME.github.io](https://YOUR_GITHUB_USERNAME.github.io)
+**Affiliation:** [Shanghai AI Lab]  
+**Email:** [yanfang@pjlab.org.cn]  
+**Website:** [https://yanfang-research.github.io/ImmunoBench](https://yanfang-research.github.io/ImmunoBench)
 
 ---
 
