@@ -17,7 +17,7 @@ This website presents comprehensive benchmark results, datasets, and model compa
 
 ## 📄 Paper
 
-📘 **Paper Name**  
+📘 **ImmunoBench: A Large-Scale Benchmark for Foundation Models in Immunohistochemistry-Driven Computational Pathology**  
 *First Author*, *Co-authors*, *et al.*  
 🧾 Preprint available on **[arXiv:2501.XXXX](https://arxiv.org/abs/2501.XXXX)**
 
