@@ -59,9 +59,6 @@ If you use or refer to **ImmunoBench** in your research, please cite:
 ## 🧑‍⚖️ License
 
 This project is released under the **MIT License**.  
-For academic reuse, you may alternatively apply the **Creative Commons Attribution 4.0 (CC BY 4.0)** license.  
-Please provide proper citation when using or extending this benchmark.
-
 ---
 
 ⭐ *If you find this project useful, please consider starring the repository!*
