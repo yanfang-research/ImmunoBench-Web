@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImmunoBench · Models</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell min-h-screen">
+    <div id="site-header"></div>
+    <main class="container-xl mx-auto px-5 lg:px-8 py-10 md:py-14">
+      <div class="mb-8 md:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pl-2">
+        <div>
+          <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Foundation model catalogue</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Models</span></div>
+          <p class="mt-4 max-w-3xl text-slate-600 leading-8">A comprehensive overview of the pathology foundation models evaluated in ImmunoBench, detailing their architectural characteristics, pre-training strategies, and data scale.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 shrink-0">
+          <div class="metric-card rounded-2xl px-5 py-4 text-center min-w-[140px]"><div class="text-sm text-slate-500">Patch-level</div><div class="metric-value mt-2 text-3xl font-semibold" id="patchCount"></div></div>
+          <div class="metric-card rounded-2xl px-5 py-4 text-center min-w-[140px]"><div class="text-sm text-slate-500">WSI-level</div><div class="metric-value mt-2 text-3xl font-semibold" id="wsiCount"></div></div>
+        </div>
+      </div>
+      <div class="table-shell overflow-x-auto shadow-sm">
+          <table>
+            <thead>
+              <tr>
+                <th class="text-center px-5 py-4">Model</th>
+                <th class="text-center px-5 py-4">Level</th>
+                <th class="text-center px-5 py-4">Training Modalities</th>
+                <th class="text-center px-5 py-4">Venue</th>
+                <th class="text-center px-5 py-4">Date</th>
+                <th class="text-center px-5 py-4">SSL Method</th>
+                <th class="text-center px-5 py-4">Architecture</th>
+                <th class="text-center px-5 py-4">#Params</th>
+                <th class="text-center px-5 py-4">#WSIs</th>
+              </tr>
+            </thead>
+            <tbody id="models-body"></tbody>
+          </table>
+      </div>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+
+  <script src="site-data.js"></script>
+  <script src="site.js"></script>
+  <script>
+    renderHeader('models');
+    document.addEventListener('DOMContentLoaded', () => {
+      const tbody = document.getElementById('models-body');
+      const patch = DATA.foundationModels.filter(m => m.level.toLowerCase() === 'patch').length;
+      const wsi = DATA.foundationModels.filter(m => m.level.toLowerCase() === 'wsi').length;
+      document.getElementById('patchCount').textContent = patch;
+      document.getElementById('wsiCount').textContent = wsi;
+      tbody.innerHTML = DATA.foundationModels.map(m => `
+        <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-100/50 last:border-0 text-center">
+          <td class="px-5 py-4 font-semibold text-slate-800"><a class="link-clean hover:text-indigo-600 transition-colors" href="${m.url || '#'}" target="_blank" rel="noreferrer">${m.name}</a></td>
+          <td class="px-5 py-4">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${m.level.toLowerCase() === 'wsi' ? 'bg-purple-50 text-purple-600 border border-purple-200/60' : 'bg-indigo-50 text-indigo-600 border border-indigo-200/60'}">
+              ${m.level}
+            </span>
+          </td>
+          <td class="px-5 py-4">
+            ${m.ihcTrain === '✓' 
+              ? '<div class="flex items-center justify-center gap-1.5"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-fuchsia-50 text-fuchsia-600 border border-fuchsia-200/60 uppercase tracking-wider">HE</span><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-sky-50 text-sky-600 border border-sky-200/60 uppercase tracking-wider">IHC</span></div>' 
+              : '<span class="inline-flex items-center justify-center px-2 py-0.5 rounded text-[11px] font-bold bg-fuchsia-50 text-fuchsia-600 border border-fuchsia-200/60 uppercase tracking-wider">HE</span>'}
+          </td>
+          <td class="px-5 py-4 text-slate-500 text-sm">${m.venue}</td>
+          <td class="px-5 py-4 font-mono text-sm text-slate-500">${m.date}</td>
+          <td class="px-5 py-4 text-sm text-slate-600">${m.ssl}</td>
+          <td class="px-5 py-4 font-mono text-sm text-slate-600">${m.arch}</td>
+          <td class="px-5 py-4 font-mono text-sm font-medium text-slate-700">${m.params}</td>
+          <td class="px-5 py-4 font-mono text-sm font-medium text-slate-700">${m.wsis}</td>
+        </tr>`).join('');
+    });
+  </script>
+</body>
+</html>

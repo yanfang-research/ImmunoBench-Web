@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImmunoBench · Tasks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell min-h-screen">
+    <div id="site-header"></div>
+    <main class="container-xl mx-auto px-5 lg:px-8 py-10 md:py-14">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pl-2">
+          <div>
+            <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Task explorer</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Tasks</span></div>
+            <p class="mt-4 max-w-3xl text-slate-600 leading-8">Search tasks, inspect top-performing models, and open a compact modal for per-model AUC, ACC, and C-index values.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 w-full lg:w-auto shrink-0">
+            <input id="taskSearch" class="search-input rounded-2xl px-4 py-3 min-w-[260px]" type="text" placeholder="Search task name..." />
+            <select id="groupFilter" class="select-input rounded-2xl px-4 py-3 min-w-[220px]">
+              <option value="All">All groups</option>
+              <option>IHC Staining Assessment</option>
+              <option>Biomarker Expression</option>
+              <option>Diagnosis & Grading</option>
+              <option>Microenvironment</option>
+              <option>Progression & Prognosis</option>
+              <option>Therapeutic Response</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="taskGrid"></div>
+        </div>
+    </main>
+
+    <div id="taskModal" class="hidden fixed inset-0 z-[100] items-center justify-center modal-backdrop p-4">
+      <div class="glass-strong rounded-[30px] w-full max-w-5xl max-h-[88vh] overflow-auto p-6 md:p-8">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div id="modalGroup" class="kicker"></div>
+            <h2 id="modalTitle" class="mt-2 text-3xl font-semibold"></h2>
+            <p class="mt-2 text-slate-600">Per-model metrics (mean ± std)</p>
+          </div>
+          <button id="closeModal" class="btn-secondary rounded-xl px-4 py-2 text-sm font-medium">Close</button>
+        </div>
+        <div class="mt-6 grid lg:grid-cols-[0.95fr_1.05fr] gap-6 items-stretch">
+          <div class="table-shell overflow-x-auto">
+            <table>
+              <thead>
+                <tr>
+                  <th class="text-left px-4 py-3">Model</th>
+                  <th class="text-right px-4 py-3">AUC</th>
+                  <th class="text-right px-4 py-3">ACC</th>
+                  <th class="text-right px-4 py-3">F1</th>
+                </tr>
+              </thead>
+              <tbody id="modalBody"></tbody>
+            </table>
+          </div>
+          <div class="chart-shell"><canvas id="taskChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script src="site-data.js"></script>
+  <script src="site.js"></script>
+    <script>
+    renderHeader('tasks');
+    let taskChart = null;
+    function renderTaskCards() {
+      const search = document.getElementById('taskSearch').value.trim().toLowerCase();
+      const group = document.getElementById('groupFilter').value;
+      const taskGrid = document.getElementById('taskGrid');
+      
+      const tasks = Object.entries(DATA.tasks)
+        .map(([task, rows]) => {
+          const sorted = [...rows].sort((a, b) => {
+            const valA = parseMean(a.auc) || parseMean(a.acc) || parseMean(a.cindex) || 0;
+            const valB = parseMean(b.auc) || parseMean(b.acc) || parseMean(b.cindex) || 0;
+            return valB - valA;
+          });
+          return { task, rows, best: sorted[0], group: getTaskGroup(task) };
+        })
+        .filter(item => item.best)
+        .filter(item => (!search || item.task.toLowerCase().includes(search)) && (group === 'All' || item.group === group))
+        .sort((a, b) => {
+          const groupOrder = [
+            "IHC Staining Assessment",
+            "Biomarker Expression",
+            "Diagnosis & Grading",
+            "Microenvironment",
+            "Progression & Prognosis",
+            "Therapeutic Response"
+          ];
+          const idxA = groupOrder.indexOf(a.group);
+          const idxB = groupOrder.indexOf(b.group);
+          if (idxA !== idxB) {
+            return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
+          }
+          return a.task.localeCompare(b.task);
+        });
+
+      taskGrid.innerHTML = tasks.map(item => {
+        const val = parseMean(item.best.auc) || parseMean(item.best.acc) || parseMean(item.best.cindex);
+        return `
+        <button class="task-card card-hover text-left p-5" data-task="${item.task.replace(/"/g, '&quot;')}">
+          <div class="flex items-start justify-between gap-3">
+            <span class="task-tag rounded-full px-3 py-1 text-xs font-semibold">${item.group}</span>
+            <span class="text-xs text-slate-500">${item.rows.length} models</span>
+          </div>
+          <div class="mt-4 text-xl font-semibold leading-7">${item.task}</div>
+          <div class="mt-4 text-sm text-slate-600">Best Metric</div>
+          <div class="mt-1 text-lg font-semibold text-indigo-700">${item.best.model} · ${val ? val.toFixed(3) : 'N/A'}</div>
+        </button>`
+      }).join('');
+
+      document.querySelectorAll('[data-task]').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.task));
+      });
+    }
+
+    function openModal(taskName) {
+      const rows = [...(DATA.tasks[taskName] || [])].sort((a, b) => {
+        const valA = parseMean(a.auc) || parseMean(a.acc) || parseMean(a.cindex) || 0;
+        const valB = parseMean(b.auc) || parseMean(b.acc) || parseMean(b.cindex) || 0;
+        return valB - valA;
+      });
+      document.getElementById('modalTitle').textContent = taskName;
+      document.getElementById('modalGroup').textContent = getTaskGroup(taskName);
+      document.getElementById('modalBody').innerHTML = rows.map(r => `
+        <tr>
+          <td class="px-4 py-3 font-medium">${r.model}</td>
+          <td class="px-4 py-3 text-right">${r.auc || '–'}</td>
+          <td class="px-4 py-3 text-right">${r.acc || '–'}</td>
+          <td class="px-4 py-3 text-right">${r.f1 || '–'}</td>
+        </tr>`).join('');
+
+      if (taskChart) taskChart.destroy();
+      const chartVals = rows.map(r => parseMean(r.auc) || parseMean(r.acc) || parseMean(r.cindex));
+      const chartLabel = rows[0]?.auc ? 'AUC' : (rows[0]?.acc ? 'Accuracy' : 'C-index');
+      taskChart = createChart(document.getElementById('taskChart'), rows.map(r => r.model), chartVals, chartLabel);
+      const modal = document.getElementById('taskModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTaskCards();
+      document.getElementById('taskSearch').addEventListener('input', renderTaskCards);
+      document.getElementById('groupFilter').addEventListener('change', renderTaskCards);
+      document.getElementById('closeModal').addEventListener('click', () => {
+        document.getElementById('taskModal').classList.add('hidden');
+        document.getElementById('taskModal').classList.remove('flex');
+      });
+      document.getElementById('taskModal').addEventListener('click', (e) => {
+        if (e.target.id === 'taskModal') {
+          e.currentTarget.classList.add('hidden');
+          e.currentTarget.classList.remove('flex');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

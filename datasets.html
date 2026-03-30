@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImmunoBench · Datasets</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell min-h-screen">
+    <div id="site-header"></div>
+    <main class="container-xl mx-auto px-5 lg:px-8 py-10 md:py-14">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pl-2">
+          <div>
+            <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Data resources</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Datasets</span></div>
+            <p class="mt-4 max-w-3xl text-slate-600 leading-8">A comprehensive summary of all public and private datasets included in ImmunoBench, covering diverse cancer types, various IHC markers, and supporting both WSI-level and patch-level evaluation.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="metric-card rounded-2xl px-5 py-4"><div class="text-sm text-slate-500">Public</div><div class="metric-value mt-2 text-3xl font-semibold" id="publicCount"></div></div>
+            <div class="metric-card rounded-2xl px-5 py-4"><div class="text-sm text-slate-500">Private</div><div class="metric-value mt-2 text-3xl font-semibold" id="privateCount"></div></div>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col gap-10">
+          <div>
+            <h2 class="text-2xl font-semibold mb-4 px-2">Public datasets</h2>
+            <div class="table-shell overflow-x-auto shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="text-left px-5 py-4">Dataset Name</th>
+                    <th class="text-left px-5 py-4">Stain Type</th>
+                    <th class="text-left px-5 py-4">Disease Category</th>
+                    <th class="text-right px-5 py-4">Patients</th>
+                    <th class="text-right px-5 py-4">Data Volume</th>
+                  </tr>
+                </thead>
+                <tbody id="publicBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold mb-4 px-2">Private datasets</h2>
+            <div class="table-shell overflow-x-auto shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="text-left px-5 py-4">Dataset Name</th>
+                    <th class="text-left px-5 py-4">Stain Type</th>
+                    <th class="text-left px-5 py-4">Disease Category</th>
+                    <th class="text-right px-5 py-4">Patients</th>
+                    <th class="text-right px-5 py-4">Data Volume</th>
+                  </tr>
+                </thead>
+                <tbody id="privateBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+
+  <script src="site-data.js"></script>
+  <script src="site.js"></script>
+  <script>
+    renderHeader('datasets');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('publicCount').textContent = DATA.datasets.public.length;
+      document.getElementById('privateCount').textContent = DATA.datasets.private.length;
+      document.getElementById('publicBody').innerHTML = DATA.datasets.public.map(d => `
+        <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-100/50 last:border-0">
+          <td class="px-5 py-4 font-semibold text-slate-800">${d.url ? `<a class="link-clean hover:text-indigo-600 transition-colors" href="${d.url}" target="_blank" rel="noreferrer">${d.name}</a>` : d.name}</td>
+          <td class="px-5 py-4 text-slate-600">${d.stain}</td>
+          <td class="px-5 py-4 text-slate-600">${d.disease}</td>
+          <td class="px-5 py-4 text-right font-mono text-slate-700">${d.patients}</td>
+          <td class="px-5 py-4 text-right font-mono text-slate-700">${d.volume}</td>
+        </tr>`).join('');
+      document.getElementById('privateBody').innerHTML = DATA.datasets.private.map(d => `
+        <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-100/50 last:border-0">
+          <td class="px-5 py-4 font-semibold text-slate-800">${d.name}</td>
+          <td class="px-5 py-4 text-slate-600">${d.stain}</td>
+          <td class="px-5 py-4 text-slate-600">${d.disease}</td>
+          <td class="px-5 py-4 text-right font-mono text-slate-700">${d.patients}</td>
+          <td class="px-5 py-4 text-right font-mono text-slate-700">${d.volume}</td>
+        </tr>`).join('');
+    });
+  </script>
+</body>
+</html>
