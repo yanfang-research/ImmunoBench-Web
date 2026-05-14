@@ -263,8 +263,284 @@
           </div>
         </div>
         
-        <div class="glass-panel rounded-[30px] p-7 md:p-8 flex justify-center">
-          <img src="leaderboard.png" alt="Overall Model Rankings" class="max-w-full h-auto rounded-xl" />
+        <div class="glass-panel rounded-[30px] p-7 md:p-10">
+          
+          <div class="w-full max-w-4xl mx-auto bg-white/50 rounded-2xl p-6 md:p-8">
+            <!-- Header -->
+            <div class="flex items-end mb-4 border-b border-slate-200/80 pb-3 relative">
+              <div class="w-36 md:w-48 shrink-0 text-sm font-semibold text-slate-700">Model</div>
+              <div class="flex-1 relative">
+                <div class="text-center text-sm font-semibold text-slate-700 mb-3">Overall Mean Rank<br><span class="text-xs font-normal text-slate-500">(Lower is better)</span></div>
+                <!-- X-axis labels -->
+                <div class="flex justify-between absolute bottom-0 left-0 right-0 text-xs text-slate-400 translate-y-full pt-2">
+                   <span class="absolute" style="left: 10%; transform: translateX(-50%)">4</span>
+                   <span class="absolute" style="left: 30%; transform: translateX(-50%)">6</span>
+                   <span class="absolute" style="left: 50%; transform: translateX(-50%)">8</span>
+                   <span class="absolute" style="left: 70%; transform: translateX(-50%)">10</span>
+                   <span class="absolute" style="left: 90%; transform: translateX(-50%)">12</span>
+                </div>
+              </div>
+              <div class="w-28 md:w-40 shrink-0 flex text-xs font-semibold text-slate-700 text-center">
+                <div class="w-1/2">Wins<br><span class="font-normal text-slate-500">(#1 finishes)</span></div>
+                <div class="w-1/2">Top-3<br><span class="font-normal text-slate-500">(count)</span></div>
+              </div>
+            </div>
+
+            <!-- Chart Body -->
+            <div class="relative py-4">
+              <!-- Grid Lines -->
+              <div class="absolute top-0 bottom-0 left-36 md:left-48 right-28 md:right-40 pointer-events-none z-0">
+                <div class="w-full h-full relative">
+                  <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200" style="left: 10%"></div>
+                  <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200" style="left: 30%"></div>
+                  <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200" style="left: 50%"></div>
+                  <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200" style="left: 70%"></div>
+                  <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200" style="left: 90%"></div>
+                </div>
+              </div>
+
+              <!-- Rows -->
+              <!-- Row 1 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-yellow-100 text-yellow-700">1</span>
+                  <span class="font-medium text-slate-800 text-sm">Virchow2</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 11.6%; width: 36px; height: 36px; background-color: rgba(79, 70, 229, 1.0);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(11.6% + 24px);">4.16</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">20</div>
+                  <div class="w-1/2 text-slate-700">48</div>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-slate-200 text-slate-700">2</span>
+                  <span class="font-medium text-slate-800 text-sm">UNI</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 29.8%; width: 15.6px; height: 15.6px; background-color: rgba(79, 70, 229, 0.58);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(29.8% + 14px);">5.98</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">3</div>
+                  <div class="w-1/2 text-slate-700">23</div>
+                </div>
+              </div>
+              <!-- Row 3 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold bg-orange-100 text-orange-800">3</span>
+                  <span class="font-medium text-slate-800 text-sm">GigaPath</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 30.0%; width: 16.8px; height: 16.8px; background-color: rgba(79, 70, 229, 0.50);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(30.0% + 14px);">6.00</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">4</div>
+                  <div class="w-1/2 text-slate-700">18</div>
+                </div>
+              </div>
+              <!-- Row 4 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">4</span>
+                  <span class="font-medium text-slate-800 text-sm">GPFM</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 31.9%; width: 30px; height: 30px; background-color: rgba(79, 70, 229, 0.70);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(31.9% + 21px);">6.19</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">15</div>
+                  <div class="w-1/2 text-slate-700">30</div>
+                </div>
+              </div>
+              <!-- Row 5 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">5</span>
+                  <span class="font-medium text-slate-800 text-sm">CONCH</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 33.6%; width: 19.2px; height: 19.2px; background-color: rgba(79, 70, 229, 0.62);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(33.6% + 16px);">6.36</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">6</div>
+                  <div class="w-1/2 text-slate-700">25</div>
+                </div>
+              </div>
+              <!-- Row 6 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">6</span>
+                  <span class="font-medium text-slate-800 text-sm">MADELEINE</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 34.8%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.52);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(34.8% + 15px);">6.48</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">5</div>
+                  <div class="w-1/2 text-slate-700">19</div>
+                </div>
+              </div>
+              <!-- Row 7 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">7</span>
+                  <span class="font-medium text-slate-800 text-sm">TITAN</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 37.1%; width: 24px; height: 24px; background-color: rgba(79, 70, 229, 0.43);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(37.1% + 18px);">6.71</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">10</div>
+                  <div class="w-1/2 text-slate-700">14</div>
+                </div>
+              </div>
+              <!-- Row 8 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">8</span>
+                  <span class="font-medium text-slate-800 text-sm">CONCH v1.5</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 38.0%; width: 22.8px; height: 22.8px; background-color: rgba(79, 70, 229, 0.55);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(38.0% + 17px);">6.80</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">9</div>
+                  <div class="w-1/2 text-slate-700">21</div>
+                </div>
+              </div>
+              <!-- Row 9 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">9</span>
+                  <span class="font-medium text-slate-800 text-sm">H-optimus-0</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 43.9%; width: 14.4px; height: 14.4px; background-color: rgba(79, 70, 229, 0.48);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(43.9% + 13px);">7.39</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">2</div>
+                  <div class="w-1/2 text-slate-700">17</div>
+                </div>
+              </div>
+              <!-- Row 10 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">10</span>
+                  <span class="font-medium text-slate-800 text-sm">Phikon</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 47.1%; width: 15.6px; height: 15.6px; background-color: rgba(79, 70, 229, 0.42);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(47.1% + 14px);">7.71</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">3</div>
+                  <div class="w-1/2 text-slate-700">13</div>
+                </div>
+              </div>
+              <!-- Row 11 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">11</span>
+                  <span class="font-medium text-slate-800 text-sm">Virchow</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 52.8%; width: 14.4px; height: 14.4px; background-color: rgba(79, 70, 229, 0.25);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(52.8% + 13px);">8.28</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">2</div>
+                  <div class="w-1/2 text-slate-700">3</div>
+                </div>
+              </div>
+              <!-- Row 12 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">12</span>
+                  <span class="font-medium text-slate-800 text-sm">CTransPath</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 53.6%; width: 14.4px; height: 14.4px; background-color: rgba(79, 70, 229, 0.37);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(53.6% + 13px);">8.36</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">2</div>
+                  <div class="w-1/2 text-slate-700">10</div>
+                </div>
+              </div>
+              <!-- Row 13 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">13</span>
+                  <span class="font-medium text-slate-800 text-sm">CHIEF</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 64.8%; width: 12px; height: 12px; background-color: rgba(79, 70, 229, 0.30);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(64.8% + 12px);">9.48</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">0</div>
+                  <div class="w-1/2 text-slate-700">6</div>
+                </div>
+              </div>
+              <!-- Row 14 -->
+              <div class="flex items-center py-2 relative group hover:bg-white rounded-lg transition-colors z-10">
+                <div class="w-36 md:w-48 flex items-center gap-3 shrink-0 pl-2">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium border border-slate-200 bg-slate-50 text-slate-500">14</span>
+                  <span class="font-medium text-slate-800 text-sm">Prov-GigaPath</span>
+                </div>
+                <div class="flex-1 relative h-8">
+                  <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full shadow-sm" style="left: 86.6%; width: 14.4px; height: 14.4px; background-color: rgba(79, 70, 229, 0.25);"></div>
+                  <div class="absolute top-1/2 -translate-y-1/2 text-sm font-medium text-slate-700" style="left: calc(86.6% + 13px);">11.66</div>
+                </div>
+                <div class="w-28 md:w-40 flex items-center shrink-0 text-sm text-center">
+                  <div class="w-1/2 text-slate-700">2</div>
+                  <div class="w-1/2 text-slate-700">3</div>
+                </div>
+              </div>
+              
+              <!-- Bottom X-axis label -->
+              <div class="mt-6 text-center text-sm font-medium text-slate-600">Mean Rank</div>
+            </div>
+
+            <!-- Footer Legends -->
+            <div class="mt-8 pt-6 border-t border-slate-200/80 flex flex-col md:flex-row justify-between gap-8">
+              <div class="flex-1">
+                <div class="text-xs font-medium text-slate-600 mb-4">Bubble size: Wins (#1 finishes)</div>
+                <div class="flex items-end gap-6 h-10 pl-2">
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-600" style="width: 12px; height: 12px;"></div><span class="text-xs text-slate-500">0</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-600" style="width: 14.4px; height: 14.4px;"></div><span class="text-xs text-slate-500">2</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-600" style="width: 16.8px; height: 16.8px;"></div><span class="text-xs text-slate-500">4</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-600" style="width: 21.6px; height: 21.6px;"></div><span class="text-xs text-slate-500">8</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-600" style="width: 36px; height: 36px;"></div><span class="text-xs text-slate-500">20</span></div>
+                </div>
+              </div>
+              <div class="w-px bg-slate-200/80 hidden md:block"></div>
+              <div class="flex-1">
+                <div class="text-xs font-medium text-slate-600 mb-4">Bubble color: Top-3 count</div>
+                <div class="flex items-end gap-6 h-10 pl-2">
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full" style="width: 16px; height: 16px; background-color: rgba(79, 70, 229, 0.25);"></div><span class="text-xs text-slate-500">3</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full" style="width: 16px; height: 16px; background-color: rgba(79, 70, 229, 0.43);"></div><span class="text-xs text-slate-500">14</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full" style="width: 16px; height: 16px; background-color: rgba(79, 70, 229, 0.63);"></div><span class="text-xs text-slate-500">26</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full" style="width: 16px; height: 16px; background-color: rgba(79, 70, 229, 0.82);"></div><span class="text-xs text-slate-500">37</span></div>
+                  <div class="flex flex-col items-center gap-2"><div class="rounded-full" style="width: 16px; height: 16px; background-color: rgba(79, 70, 229, 1.0);"></div><span class="text-xs text-slate-500">48</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
