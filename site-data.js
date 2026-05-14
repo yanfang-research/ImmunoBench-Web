@@ -1509,17 +1509,17 @@ const DATA = {
         { name: "UNI", level: "Patch", ihcTrain: "✗", venue: "Nature Medicine", date: "2024.03", ssl: "DINOv2", arch: "ViT-L/16", params: "307M", wsis: "100K", url: "https://www.nature.com/articles/s41591-024-02857-3"},
         { name: "Virchow", level: "Patch", ihcTrain: "✗", venue: "Nature Medicine", date: "2024.07", ssl: "DINOv2", arch: "ViT-H/14", params: "632M", wsis: "1.5M", url: "https://www.nature.com/articles/s41591-024-03141-0"},
         { name: "Virchow2", level: "Patch", ihcTrain: "✓", venue: "arXiv", date: "2024.09", ssl: "DINOv2", arch: "ViT-H/14", params: "632M", wsis: "3.1M", url: "https://arxiv.org/abs/2408.00738"},
-        { name: "Prov-Gigapath-Patch", level: "Patch", ihcTrain: "✗", venue: "Nature", date: "2024.05", ssl: "DINOv2", arch: "ViT-G/14", params: "1.1B", wsis: "171K", url: "https://www.nature.com/articles/s41586-024-07441-w"},
-        { name: "Prov-Gigapath-WSI", level: "WSI", ihcTrain: "✗", venue: "Nature", date: "2024.05", ssl: "DINOv2", arch: "ViT-G/14", params: "1.1B", wsis: "500K", url: "https://www.nature.com/articles/s41586-024-07441-w"},
-        { name: "CHIEF-Patch", level: "Patch", ihcTrain: "✗", venue: "Nature", date: "2024.09", ssl: "Swin-T/14", arch: "Swin-T/14", params: "27.8M", wsis: "60K", url: "https://pubmed.ncbi.nlm.nih.gov/39232164/"},
-        { name: "CHIEF-WSI", level: "WSI", ihcTrain: "✗", venue: "Nature", date: "2024.09", ssl: "Swin-T/14", arch: "Swin-T/14", params: "27.8M", wsis: "60K", url: "https://pubmed.ncbi.nlm.nih.gov/39232164/"},
-        { name: "TITAN", level: "WSI", ihcTrain: "✓", venue: "arXiv", date: "2024.09", ssl: "iBOT → CoCa", arch: "ViT-L/16", params: "48.5M", wsis: "336K", url: "https://arxiv.org/abs/2411.19666"},
-        { name: "MADELENE", level: "WSI", ihcTrain: "✓", venue: "ECCV", date: "2024.08", ssl: "-", arch: "Multi-head attention-based MIL", params: "91M", wsis: "16.3K", url: "https://arxiv.org/abs/2408.02859"},
-        { name: "CTransPath", level: "Patch", ihcTrain: "✗", venue: "MedIA", date: "2022.01", ssl: "MoCo-v3", arch: "Swin-T/14", params: "28M", wsis: "32.2K", url: "https://www.sciencedirect.com/science/article/abs/pii/S1361841522002043"},
-        { name: "H-optimus-0", level: "Patch", ihcTrain: "✗", venue: "GitHub", date: "2024.08", ssl: "DINOv2", arch: "ViT-G/14", params: "1.1B", wsis: "500K", url: "https://huggingface.co/bioptimus/H-optimus-0"},
+        { name: "GigaPath", level: "Patch", ihcTrain: "✗", venue: "Nature", date: "2024.05", ssl: "DINOv2", arch: "ViT-G/14", params: "1.1B", wsis: "171K", url: "https://www.nature.com/articles/s41586-024-07441-w"},
+        { name: "CTransPath", level: "Patch", ihcTrain: "✗", venue: "Nature", date: "2024.09", ssl: "Swin-T/14", arch: "Swin-T/14", params: "27.8M", wsis: "30K", url: "https://www.sciencedirect.com/science/article/abs/pii/S1361841522002043"},
+        { name: "H-optimus-0", level: "Patch", ihcTrain: "✗", venue: "Open-source (GitHub)", date: "2024.08", ssl: "DINOv2", arch: "ViT-G/14", params: "1.1B", wsis: "500K", url: "https://huggingface.co/bioptimus/H-optimus-0"},
         { name: "Phikon", level: "Patch", ihcTrain: "✗", venue: "arXiv", date: "2023.07", ssl: "iBOT", arch: "ViT-B/16", params: "86.4M", wsis: "6K", url: "https://huggingface.co/owkin/Phikon"},
         { name: "GPFM", level: "Patch", ihcTrain: "✗", venue: "Nature Biomedical Engineering", date: "2025.04", ssl: "Custom", arch: "ViT-L/14", params: "303M", wsis: "72.3K", url: "https://www.nature.com/articles/s41551-025-01488-4"},
-        { name: "Conch", level: "Patch", ihcTrain: "✓", venue: "Nature Medicine", date: "2024.03", ssl: "iBOT → CoCa", arch: "ViT-B/16", params: "86M", wsis: "21.4K → 1.2M", url: "https://www.nature.com/articles/s41591-024-02856-4"}
+        { name: "CONCH", level: "Patch", ihcTrain: "✓", venue: "Nature Medicine", date: "2024.03", ssl: "iBOT → CoCa", arch: "ViT-B/16", params: "86M", wsis: "21.4K → 1.2M", url: "https://www.nature.com/articles/s41591-024-02856-4"},
+        { name: "CONCH v1.5", level: "Patch", ihcTrain: "✓", venue: "Open-source (GitHub)", date: "2024.09", ssl: "iBOT → CoCa", arch: "ViT-L/16", params: "306M", wsis: "1.17M", url: "#"},
+        { name: "Prov-GigaPath", level: "WSI", ihcTrain: "✗", venue: "Nature", date: "2024.05", ssl: "MAE", arch: "Long-context Transformer", params: "85.1M", wsis: "500K", url: "https://www.nature.com/articles/s41586-024-07441-w"},
+        { name: "CHIEF", level: "WSI", ihcTrain: "✗", venue: "Nature", date: "2024.09", ssl: "-", arch: "Attention-based MIL/14", params: "1.2M", wsis: "60K", url: "https://pubmed.ncbi.nlm.nih.gov/39232164/"},
+        { name: "TITAN", level: "WSI", ihcTrain: "✓", venue: "Nature Medicine", date: "2024.09", ssl: "iBOT → CoCa", arch: "ViT-L/16", params: "6.4M", wsis: "336K", url: "https://arxiv.org/abs/2411.19666"},
+        { name: "MADELEINE", level: "WSI", ihcTrain: "✓", venue: "ECCV", date: "2024.08", ssl: "-", arch: "Multi-head Attention-based MIL", params: "5M", wsis: "16.3K", url: "https://arxiv.org/abs/2408.02859"}
       ],
 
       // Datasets
