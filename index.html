@@ -179,7 +179,7 @@
                 <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">IHC</span>
               </div>
               <div class="text-xs font-medium text-slate-500 text-right">
-                <span class="text-indigo-600 font-bold text-sm">35</span> in-domain / <span class="text-indigo-600 font-bold text-sm">12</span> OOD
+                <span class="text-indigo-600 font-bold text-sm">33</span> in-domain / <span class="text-indigo-600 font-bold text-sm">12</span> OOD
               </div>
             </div>
           </div>
@@ -229,7 +229,7 @@
                 <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">IHC</span>
               </div>
               <div class="text-xs font-medium text-slate-500">
-                <span class="text-indigo-600 font-bold text-sm">7</span> tasks
+                <span class="text-indigo-600 font-bold text-sm">9</span> tasks
               </div>
             </div>
           </div>
@@ -246,7 +246,7 @@
                 <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-600">IHC</span>
               </div>
               <div class="text-xs font-medium text-slate-500">
-                <span class="text-indigo-600 font-bold text-sm">12</span> tasks
+                <span class="text-indigo-600 font-bold text-sm">10</span> tasks
               </div>
             </div>
           </div>
@@ -259,38 +259,12 @@
             <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Benchmark Snapshot</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Overall Model Rankings</span></div>
           </div>
           <div class="flex items-center gap-4">
-            <div class="flex bg-indigo-50/50 p-1 rounded-lg border border-indigo-100/50 text-sm font-medium">
-              <button id="btn-auc" class="px-4 py-1.5 rounded-md bg-white text-indigo-700 shadow-sm border border-indigo-100 transition-all">Classification (AUC)</button>
-              <button id="btn-cindex" class="px-4 py-1.5 rounded-md text-slate-500 hover:text-slate-700 transition-all">Prognosis (C-index)</button>
-            </div>
             <a href="tasks.html" class="text-sm font-medium link-clean hidden lg:block shrink-0">Full task explorer →</a>
           </div>
         </div>
         
-        <div class="glass-panel rounded-[30px] p-7 md:p-8">
-          <div class="lg:hidden mb-4 text-right">
-            <a href="tasks.html" class="text-sm font-medium link-clean">Full task explorer →</a>
-          </div>
-          <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-stretch">
-            <div class="table-shell p-2">
-              <div class="overflow-y-auto max-h-[380px] pr-1" style="scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent;">
-                <table class="w-full relative">
-                  <thead class="sticky top-0 z-10 shadow-sm">
-                    <tr>
-                      <th class="text-left px-4 py-3 w-16 text-center">Rank</th>
-                      <th class="text-left px-4 py-3">Foundation Model</th>
-                      <th class="text-right px-4 py-3" id="metric-header">Macro-Averaged AUC</th>
-                    </tr>
-                  </thead>
-                  <tbody id="overview-ranking"></tbody>
-                </table>
-              </div>
-            </div>
-            <div class="chart-shell flex flex-col">
-              <h3 class="text-center font-medium text-slate-600 mb-2 text-sm" id="chart-title">Top Models by Classification Performance</h3>
-              <div class="flex-1 relative min-h-[380px]"><canvas id="overviewChart"></canvas></div>
-            </div>
-          </div>
+        <div class="glass-panel rounded-[30px] p-7 md:p-8 flex justify-center">
+          <img src="leaderboard.png" alt="Overall Model Rankings" class="max-w-full h-auto rounded-xl" />
         </div>
       </section>
 
@@ -337,57 +311,6 @@
   <script src="site.js"></script>
   <script>
     renderHeader('home');
-    let currentChart = null;
-
-    function renderRanking(type = 'auc') {
-      const isAUC = type === 'auc';
-      const data = isAUC ? OVERALL_AUC_RANKING : OVERALL_CINDEX_RANKING;
-      const topRows = data; // Show all models
-      
-      const tbody = document.getElementById('overview-ranking');
-      tbody.innerHTML = topRows.map((row, idx) => `
-        <tr>
-          <td class="px-4 py-3 text-center text-slate-400 font-mono text-xs">
-            ${idx < 3 ? `<span class="inline-flex w-6 h-6 items-center justify-center rounded-full ${idx===0?'bg-yellow-100 text-yellow-700':idx===1?'bg-slate-200 text-slate-700':'bg-orange-100 text-orange-800'} font-bold">${idx+1}</span>` : idx+1}
-          </td>
-          <td class="px-4 py-3 font-medium text-slate-700">
-            ${row.model}
-            ${row.model.includes('WSI') ? '<span class="ml-2 text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full uppercase tracking-wider">WSI</span>' : ''}
-          </td>
-          <td class="px-4 py-3 text-right font-mono font-medium text-indigo-700">${row.score.toFixed(3)}</td>
-        </tr>`).join('');
-        
-      document.getElementById('metric-header').textContent = isAUC ? 'Macro-Averaged AUC' : 'Macro-Averaged C-index';
-      document.getElementById('chart-title').textContent = isAUC ? 'Top Models by Classification Performance' : 'Top Models by Prognosis Performance';
-
-      if (currentChart) currentChart.destroy();
-      currentChart = createChart(
-        document.getElementById('overviewChart'), 
-        topRows.map(r => r.model.replace(' (WSI)', '')), 
-        topRows.map(r => r.score), 
-        isAUC ? 'AUC' : 'C-index',
-        isAUC ? [0.85, 1.0] : [0.5, 0.65]
-      );
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderRanking('auc');
-
-      const btnAuc = document.getElementById('btn-auc');
-      const btnCindex = document.getElementById('btn-cindex');
-
-      btnAuc.addEventListener('click', () => {
-        btnAuc.className = "px-4 py-1.5 rounded-md bg-white text-indigo-700 shadow-sm border border-indigo-100 transition-all";
-        btnCindex.className = "px-4 py-1.5 rounded-md text-slate-500 hover:text-slate-700 transition-all";
-        renderRanking('auc');
-      });
-
-      btnCindex.addEventListener('click', () => {
-        btnCindex.className = "px-4 py-1.5 rounded-md bg-white text-indigo-700 shadow-sm border border-indigo-100 transition-all";
-        btnAuc.className = "px-4 py-1.5 rounded-md text-slate-500 hover:text-slate-700 transition-all";
-        renderRanking('cindex');
-      });
-    });
   </script>
 </body>
 </html>
