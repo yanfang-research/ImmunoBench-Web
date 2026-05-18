@@ -158,23 +158,6 @@ const DATA = {
 
 
 
-      "HNSCC-CauseSpecific": [
-          { model: "CHIEF", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0005", f1: "1.000 ± 0.0005"},
-          { model: "Conch", auc: "1.000 ± 0.0000", acc: "0.998 ± 0.0037", f1: "0.998 ± 0.0040" },
-          { model: "Conch_v1_5", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000"},
-          { model: "ctranspath", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "gigapath", auc: "1.000 ± 0.0000", acc: "0.999 ± 0.0019", f1: "0.998 ± 0.0023" },
-          { model: "GPFM", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "h_optimus_0", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0005", f1: "1.000 ± 0.0005" },
-          { model: "Phikon", auc: "1.000 ± 0.0000", acc: "0.996 ± 0.0040", f1: "0.996 ± 0.0040" },
-          { model: "uni", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "Virchow", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0003" },
-          { model: "Virchow2", auc: "1.000 ± 0.0000", acc: "0.999 ± 0.0019", f1: "0.998 ± 0.0023" },
-          { model: "CHIEF_wsi", auc: "0.999 ± 0.0011", acc: "0.976 ± 0.0157", f1: "0.975 ± 0.0162" },
-          { model: "gigapath_wsi", auc: "0.913 ± 0.0139", acc: "0.778 ± 0.0311", f1: "0.754 ± 0.0350" },
-          { model: "madeleine_wsi", auc: "0.994 ± 0.0031", acc: "0.936 ± 0.0250", f1: "0.932 ± 0.0238" },
-          { model: "titan_wsi", auc: "1.000 ± 0.0000", acc: "0.996 ± 0.0036", f1: "0.995 ± 0.0030" },
-      ],
 
 
 
@@ -182,108 +165,13 @@ const DATA = {
 
 
 
-      "HNSCC-Radiotherapy": [
-          { model: "CHIEF", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000"},
-          { model: "Conch", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "Conch_v1_5", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "ctranspath", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "gigapath", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "GPFM", auc: "1.000 ± 0.0000", acc: "0.993 ± 0.0112", f1: "0.993 ± 0.0120" },
-          { model: "h_optimus_0", auc: "1.000 ± 0.0000", acc: "0.997 ± 0.0044", f1: "0.997 ± 0.0046" },
-          { model: "Phikon", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "uni", auc: "1.000 ± 0.0000", acc: "0.996 ± 0.0087", f1: "0.996 ± 0.0094" },
-          { model: "Virchow", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "Virchow2", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0004", f1: "1.000 ± 0.0005" },
-          { model: "CHIEF_wsi", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-          { model: "gigapath_wsi", auc: "0.884 ± 0.0282", acc: "0.825 ± 0.0462", f1: "0.810 ± 0.0533" },
-          { model: "madeleine_wsi", auc: "1.000 ± 0.0000", acc: "0.999 ± 0.0017", f1: "0.999 ± 0.0018" },
-          { model: "titan_wsi", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0000", f1: "1.000 ± 0.0000" },
-      ],
-      "HNSCC-SystemicTherapy": [
-          { model: "CHIEF", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002"},
-          { model: "Conch", auc: "1.000 ± 0.0002", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "Conch_v1_5", auc: "1.000 ± 0.0001", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "ctranspath", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "gigapath", auc: "1.000 ± 0.0001", acc: "0.999 ± 0.0030", f1: "0.998 ± 0.0032" },
-          { model: "GPFM", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "h_optimus_0", auc: "1.000 ± 0.0002", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "Phikon", auc: "1.000 ± 0.0002", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "uni", auc: "1.000 ± 0.0000", acc: "0.997 ± 0.0041", f1: "0.997 ± 0.0043" },
-          { model: "Virchow", auc: "1.000 ± 0.0000", acc: "1.000 ± 0.0002", f1: "1.000 ± 0.0002" },
-          { model: "Virchow2", auc: "1.000 ± 0.0002", acc: "0.999 ± 0.0028", f1: "0.999 ± 0.0030" },
-          { model: "CHIEF_wsi", auc: "0.996 ± 0.0029", acc: "0.968 ± 0.0091", f1: "0.967 ± 0.0096" },
-          { model: "gigapath_wsi", auc: "0.792 ± 0.0297", acc: "0.729 ± 0.0365", f1: "0.712 ± 0.0333" },
-          { model: "madeleine_wsi", auc: "0.990 ± 0.0063", acc: "0.946 ± 0.0118", f1: "0.943 ± 0.0129" },
-          { model: "titan_wsi", auc: "1.000 ± 0.0004", acc: "0.999 ± 0.0029", f1: "0.999 ± 0.0030" },
-      ],
-      "Breast-HER2-pCR": [
-          { model: "CHIEF", auc: "0.959 ± 0.0688", acc: "0.918 ± 0.0969", f1: "0.916 ± 0.0981" },
-          { model: "Conch", auc: "0.962 ± 0.0524", acc: "0.888 ± 0.0697", f1: "0.887 ± 0.0694" },
-          { model: "Conch_v1_5", auc: "0.989 ± 0.0153", acc: "0.931 ± 0.0700", f1: "0.929 ± 0.0700" },
-          { model: "ctranspath", auc: "0.978 ± 0.0259", acc: "0.908 ± 0.0958", f1: "0.906 ± 0.0968" },
-          { model: "gigapath", auc: "0.934 ± 0.0667", acc: "0.853 ± 0.0925", f1: "0.850 ± 0.0925" },
-          { model: "GPFM", auc: "0.980 ± 0.0362", acc: "0.929 ± 0.1034", f1: "0.927 ± 0.1049" },
-          { model: "h_optimus_0", auc: "0.966 ± 0.0553", acc: "0.943 ± 0.0580", f1: "0.942 ± 0.0580"},
-          { model: "Phikon", auc: "0.990 ± 0.0213", acc: "0.875 ± 0.0827", f1: "0.873 ± 0.0829"},
-          { model: "uni", auc: "0.959 ± 0.0837", acc: "0.876 ± 0.1051", f1: "0.872 ± 0.1095" },
-          { model: "Virchow", auc: "0.913 ± 0.0449", acc: "0.868 ± 0.1152", f1: "0.863 ± 0.1218" },
-          { model: "Virchow2", auc: "0.978 ± 0.0497", acc: "0.921 ± 0.1151", f1: "0.919 ± 0.1182" },
-          { model: "CHIEF_wsi", auc: "0.910 ± 0.1102", acc: "0.920 ± 0.0709", f1: "0.919 ± 0.0706" },
-          { model: "gigapath_wsi", auc: "0.861 ± 0.0880", acc: "0.792 ± 0.1027", f1: "0.767 ± 0.1244" },
-          { model: "madeleine_wsi", auc: "0.943 ± 0.0389", acc: "0.931 ± 0.0700", f1: "0.929 ± 0.0700" },
-          { model: "titan_wsi", auc: "0.990 ± 0.0213", acc: "0.942 ± 0.0593", f1: "0.941 ± 0.0592" }
-      ],
-      "Breast-TNBC-Residual": [
-          { model: "CHIEF", auc: "0.950 ± 0.0697", acc: "0.905 ± 0.0920", f1: "0.900 ± 0.0979" },
-          { model: "Conch", auc: "0.960 ± 0.0470", acc: "0.923 ± 0.0526", f1: "0.917 ± 0.0612" },
-          { model: "Conch_v1_5", auc: "0.936 ± 0.0598", acc: "0.928 ± 0.0536", f1: "0.927 ± 0.0543" },
-          { model: "ctranspath", auc: "0.912 ± 0.1299", acc: "0.870 ± 0.0874", f1: "0.865 ± 0.0931" },
-          { model: "gigapath", auc: "0.982 ± 0.0334", acc: "0.937 ± 0.0535", f1: "0.936 ± 0.0538" },
-          { model: "GPFM", auc: "0.956 ± 0.0689", acc: "0.908 ± 0.1125", f1: "0.907 ± 0.1147" },
-          { model: "h_optimus_0", auc: "0.958 ± 0.0449", acc: "0.920 ± 0.0594", f1: "0.918 ± 0.0602" },
-          { model: "Phikon", auc: "0.931 ± 0.0859", acc: "0.927 ± 0.0722", f1: "0.925 ± 0.0738" },
-          { model: "uni", auc: "0.977 ± 0.0239", acc: "0.956 ± 0.0296", f1: "0.955 ± 0.0298"},
-          { model: "Virchow", auc: "0.960 ± 0.0572", acc: "0.946 ± 0.0580", f1: "0.945 ± 0.0579" },
-          { model: "Virchow2", auc: "0.986 ± 0.0151", acc: "0.923 ± 0.0526", f1: "0.921 ± 0.0542"},
-          { model: "CHIEF_wsi", auc: "0.950 ± 0.0416", acc: "0.947 ± 0.0352", f1: "0.946 ± 0.0363" },
-          { model: "gigapath_wsi", auc: "0.925 ± 0.0631", acc: "0.833 ± 0.1174", f1: "0.827 ± 0.1230" },
-          { model: "madeleine_wsi", auc: "0.904 ± 0.0663", acc: "0.861 ± 0.0797", f1: "0.846 ± 0.0997" },
-          { model: "titan_wsi", auc: "0.959 ± 0.0526", acc: "0.955 ± 0.0448", f1: "0.955 ± 0.0450" }
-      ],
-      "Breast-TNBC-pCR": [
-          { model: "CHIEF", auc: "0.955 ± 0.0637", acc: "0.915 ± 0.0643", f1: "0.909 ± 0.0678" },
-          { model: "Conch", auc: "0.965 ± 0.0584", acc: "0.941 ± 0.0802", f1: "0.939 ± 0.0838" },
-          { model: "Conch_v1_5", auc: "0.948 ± 0.0916", acc: "0.924 ± 0.0568", f1: "0.922 ± 0.0581" },
-          { model: "ctranspath", auc: "0.971 ± 0.0333", acc: "0.953 ± 0.0584", f1: "0.950 ± 0.0636" },
-          { model: "gigapath", auc: "0.907 ± 0.1278", acc: "0.935 ± 0.0540", f1: "0.929 ± 0.0602" },
-          { model: "GPFM", auc: "0.959 ± 0.0752", acc: "0.943 ± 0.0614", f1: "0.938 ± 0.0678" },
-          { model: "h_optimus_0", auc: "0.954 ± 0.0928", acc: "0.953 ± 0.0584", f1: "0.950 ± 0.0636" },
-          { model: "Phikon", auc: "0.959 ± 0.0752", acc: "0.941 ± 0.0802", f1: "0.939 ± 0.0838" },
-          { model: "uni", auc: "0.946 ± 0.1099", acc: "0.971 ± 0.0429", f1: "0.968 ± 0.0477" },
-          { model: "Virchow", auc: "0.950 ± 0.0706", acc: "0.933 ± 0.0745", f1: "0.930 ± 0.0779" },
-          { model: "Virchow2", auc: "0.996 ± 0.0086", acc: "0.971 ± 0.0639", f1: "0.969 ± 0.0696"},
-          { model: "CHIEF_wsi", auc: "0.905 ± 0.1261", acc: "0.896 ± 0.0437", f1: "0.891 ± 0.0460" },
-          { model: "gigapath_wsi", auc: "0.776 ± 0.1107", acc: "0.715 ± 0.1224", f1: "0.646 ± 0.1983" },
-          { model: "madeleine_wsi", auc: "0.925 ± 0.1037", acc: "0.875 ± 0.1320", f1: "0.870 ± 0.1310" },
-          { model: "titan_wsi", auc: "0.957 ± 0.0673", acc: "0.971 ± 0.0429", f1: "0.968 ± 0.0477" }
-      ],
-      "Breast-RCB": [
-          { model: "CHIEF", auc: "0.997 ± 0.0077", acc: "0.993 ± 0.0068", f1: "0.988 ± 0.0114" },
-          { model: "Conch", auc: "1.000 ± 0.0000", acc: "0.997 ± 0.0056", f1: "0.998 ± 0.0042"},
-          { model: "Conch_v1_5", auc: "0.999 ± 0.0031", acc: "0.997 ± 0.0056", f1: "0.998 ± 0.0042" },
-          { model: "ctranspath", auc: "0.996 ± 0.0093", acc: "0.980 ± 0.0314", f1: "0.968 ± 0.0546" },
-          { model: "gigapath", auc: "0.989 ± 0.0253", acc: "0.905 ± 0.1917", f1: "0.919 ± 0.1476" },
-          { model: "GPFM", auc: "0.997 ± 0.0071", acc: "0.995 ± 0.0112", f1: "0.994 ± 0.0134" },
-          { model: "h_optimus_0", auc: "0.996 ± 0.0050", acc: "0.990 ± 0.0105", f1: "0.986 ± 0.0170" },
-          { model: "Phikon", auc: "0.996 ± 0.0084", acc: "0.993 ± 0.0068", f1: "0.988 ± 0.0113" },
-          { model: "uni", auc: "0.997 ± 0.0067", acc: "0.993 ± 0.0112", f1: "0.991 ± 0.0135" },
-          { model: "Virchow", auc: "0.997 ± 0.0037", acc: "0.988 ± 0.0125", f1: "0.983 ± 0.0180" },
-          { model: "Virchow2", auc: "0.995 ± 0.0070", acc: "0.995 ± 0.0068", f1: "0.996 ± 0.0062" },
-          { model: "CHIEF_wsi", auc: "0.993 ± 0.0095", acc: "0.993 ± 0.0068", f1: "0.991 ± 0.0097" },
-          { model: "gigapath_wsi", auc: "0.992 ± 0.0092", acc: "0.978 ± 0.0283", f1: "0.975 ± 0.0299" },
-          { model: "madeleine_wsi", auc: "0.996 ± 0.0049", acc: "0.983 ± 0.0246", f1: "0.983 ± 0.0241" },
-          { model: "titan_wsi", auc: "0.998 ± 0.0038", acc: "0.993 ± 0.0068", f1: "0.993 ± 0.0074" }
-      ],
+
+
+
+
+
+
+
 
 
 
@@ -1340,22 +1228,7 @@ const DATA = {
           { model: "CTransPath", cindex: "0.536" },
           { model: "Prov-Gigapath (WSI)", cindex: "0.518" },
         ],
-        "Breast-RCB": [
-          { model: "MADELENE (WSI)", auc: "0.766" },
-          { model: "Conch", auc: "0.747" },
-          { model: "CHIEF (WSI)", auc: "0.734" },
-          { model: "GPFM", auc: "0.727" },
-          { model: "Virchow", auc: "0.719" },
-          { model: "UNI", auc: "0.715" },
-          { model: "TITAN (WSI)", auc: "0.713" },
-          { model: "Virchow2", auc: "0.710" },
-          { model: "Prov-Gigapath", auc: "0.704" },
-          { model: "CTransPath", auc: "0.704" },
-          { model: "Prov-Gigapath (WSI)", auc: "0.699" },
-          { model: "H-optimus-0", auc: "0.691" },
-          { model: "Phikon", auc: "0.682" },
-          { model: "Conch v1.5", auc: "0.677" },
-        ],
+
         "HNSCC-Surg-Met": [
           { model: "MADELENE (WSI)", auc: "0.700" },
           { model: "Prov-Gigapath", auc: "0.683" },
@@ -1452,54 +1325,9 @@ const DATA = {
           { model: "H-optimus-0", auc: "0.539" },
           { model: "Virchow", auc: "0.528" },
         ],
-        "Breast-TNBC-pCR": [
-          { model: "Conch v1.5", auc: "0.811" },
-          { model: "Virchow2", auc: "0.724" },
-          { model: "UNI", auc: "0.723" },
-          { model: "Prov-Gigapath", auc: "0.711" },
-          { model: "GPFM", auc: "0.710" },
-          { model: "Phikon", auc: "0.709" },
-          { model: "Conch", auc: "0.705" },
-          { model: "TITAN (WSI)", auc: "0.692" },
-          { model: "H-optimus-0", auc: "0.682" },
-          { model: "CHIEF (WSI)", auc: "0.676" },
-          { model: "Virchow", auc: "0.661" },
-          { model: "CTransPath", auc: "0.659" },
-          { model: "MADELENE (WSI)", auc: "0.642" },
-          { model: "Prov-Gigapath (WSI)", auc: "0.518" },
-        ],
-        "Breast-HER2-pCR": [
-          { model: "Prov-Gigapath (WSI)", auc: "0.878" },
-          { model: "GPFM", auc: "0.849" },
-          { model: "MADELENE (WSI)", auc: "0.848" },
-          { model: "CHIEF (WSI)", auc: "0.829" },
-          { model: "Phikon", auc: "0.820" },
-          { model: "UNI", auc: "0.816" },
-          { model: "CTransPath", auc: "0.806" },
-          { model: "Conch", auc: "0.786" },
-          { model: "Conch v1.5", auc: "0.784" },
-          { model: "Virchow", auc: "0.777" },
-          { model: "H-optimus-0", auc: "0.776" },
-          { model: "Virchow2", auc: "0.775" },
-          { model: "Prov-Gigapath", auc: "0.744" },
-          { model: "TITAN (WSI)", auc: "0.728" },
-        ],
-        "Lung-Immunotherapy": [
-          { model: "MADELENE (WSI)", auc: "0.707" },
-          { model: "TITAN (WSI)", auc: "0.702" },
-          { model: "Phikon", auc: "0.693" },
-          { model: "Conch", auc: "0.685" },
-          { model: "CTransPath", auc: "0.679" },
-          { model: "Virchow", auc: "0.677" },
-          { model: "Conch v1.5", auc: "0.671" },
-          { model: "H-optimus-0", auc: "0.662" },
-          { model: "Prov-Gigapath", auc: "0.644" },
-          { model: "UNI", auc: "0.643" },
-          { model: "Virchow2", auc: "0.642" },
-          { model: "GPFM", auc: "0.640" },
-          { model: "CHIEF (WSI)", auc: "0.618" },
-          { model: "Prov-Gigapath (WSI)", auc: "0.563" },
-        ],
+
+
+
 },
 
       // Foundation models overview table
