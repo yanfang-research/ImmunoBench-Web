@@ -1,0 +1,319 @@
+<style>
+  @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  .chart-row {
+      animation: fadeSlideUp 0.6s ease-out forwards;
+      opacity: 0;
+  }
+  .chart-bubble {
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(79, 70, 229, 0.15);
+  }
+  .chart-row:hover .chart-bubble {
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+      z-index: 50;
+  }
+  .chart-row:hover .rank-val {
+      font-weight: 700;
+      color: #4338ca;
+  }
+  .chart-row:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+  }
+</style>
+
+<section class="container-xl mx-auto px-5 lg:px-8 py-8 mb-12">
+  <div class="mb-8 md:mb-10 pl-2 flex flex-col md:flex-row md:items-end justify-between gap-4">
+    <div>
+      <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Benchmark Snapshot</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Overall Model Rankings</span></div>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="tasks.html" class="text-sm font-medium link-clean hidden lg:block shrink-0">Full task explorer →</a>
+    </div>
+  </div>
+  
+  <div class="glass-panel rounded-[32px] p-6 md:p-10 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+    
+    <div class="w-full max-w-5xl mx-auto">
+      <!-- Chart Header -->
+      <div class="grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 border-b-2 border-slate-200/80 pb-5 mb-5 relative">
+        <div class="text-sm md:text-base font-bold text-slate-800 self-end pl-2 md:pl-4">Model</div>
+        <div class="relative">
+          <div class="text-center text-sm md:text-base font-bold text-slate-800 mb-8">Overall Mean Rank<br><span class="text-xs md:text-sm font-medium text-slate-500">(Lower is better)</span></div>
+          <!-- X-axis labels -->
+          <div class="absolute bottom-0 left-0 right-0 flex justify-between text-xs md:text-sm font-semibold text-slate-400 translate-y-1/2">
+            <span class="absolute" style="left: 10%; transform: translateX(-50%)">4</span>
+            <span class="absolute" style="left: 30%; transform: translateX(-50%)">6</span>
+            <span class="absolute" style="left: 50%; transform: translateX(-50%)">8</span>
+            <span class="absolute" style="left: 70%; transform: translateX(-50%)">10</span>
+            <span class="absolute" style="left: 90%; transform: translateX(-50%)">12</span>
+          </div>
+        </div>
+        <div class="flex text-xs md:text-sm font-bold text-slate-800 text-center self-end">
+          <div class="w-1/2">Wins<br><span class="font-medium text-slate-500">(#1)</span></div>
+          <div class="w-1/2">Top-3<br><span class="font-medium text-slate-500">(count)</span></div>
+        </div>
+      </div>
+
+      <!-- Chart Body -->
+      <div class="relative py-2">
+        <!-- Grid Lines -->
+        <div class="absolute top-0 bottom-0 left-[120px] md:left-[200px] right-[110px] md:right-[180px] pointer-events-none z-0">
+          <div class="w-full h-full relative">
+            <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200/80" style="left: 10%"></div>
+            <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200/80" style="left: 30%"></div>
+            <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200/80" style="left: 50%"></div>
+            <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200/80" style="left: 70%"></div>
+            <div class="absolute top-0 bottom-0 border-l border-dashed border-slate-200/80" style="left: 90%"></div>
+          </div>
+        </div>
+
+        <!-- Rows -->
+        <div class="flex flex-col gap-1.5 md:gap-2 relative z-10">
+          <!-- Row 1 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.05s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold bg-amber-100 text-amber-700 shrink-0 shadow-sm border border-amber-200/50">1</span>
+              <span class="font-semibold text-slate-800 text-sm md:text-base truncate">Virchow2</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 11.6%; width: 40px; height: 40px; background-color: rgba(79, 70, 229, 1.0);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(11.6% + 28px);">4.16</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">20</div>
+              <div class="w-1/2">48</div>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.10s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold bg-slate-200 text-slate-700 shrink-0 shadow-sm border border-slate-300/50">2</span>
+              <span class="font-semibold text-slate-800 text-sm md:text-base truncate">UNI</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 29.8%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.65);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(29.8% + 16px);">5.98</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">3</div>
+              <div class="w-1/2">23</div>
+            </div>
+          </div>
+          <!-- Row 3 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.15s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold bg-orange-100 text-orange-700 shrink-0 shadow-sm border border-orange-200/50">3</span>
+              <span class="font-semibold text-slate-800 text-sm md:text-base truncate">GigaPath</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 30.0%; width: 22px; height: 22px; background-color: rgba(79, 70, 229, 0.50);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(30.0% + 18px);">6.00</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">4</div>
+              <div class="w-1/2">18</div>
+            </div>
+          </div>
+          <!-- Row 4 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.20s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">4</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">GPFM</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 31.9%; width: 32px; height: 32px; background-color: rgba(79, 70, 229, 0.80);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(31.9% + 24px);">6.19</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">15</div>
+              <div class="w-1/2">30</div>
+            </div>
+          </div>
+          <!-- Row 5 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.25s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">5</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">CONCH</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 33.6%; width: 22px; height: 22px; background-color: rgba(79, 70, 229, 0.70);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(33.6% + 18px);">6.36</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">6</div>
+              <div class="w-1/2">25</div>
+            </div>
+          </div>
+          <!-- Row 6 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.30s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">6</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">MADELEINE</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 34.8%; width: 22px; height: 22px; background-color: rgba(79, 70, 229, 0.55);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(34.8% + 18px);">6.48</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">5</div>
+              <div class="w-1/2">19</div>
+            </div>
+          </div>
+          <!-- Row 7 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.35s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">7</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">TITAN</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 37.1%; width: 26px; height: 26px; background-color: rgba(79, 70, 229, 0.40);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(37.1% + 20px);">6.71</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">10</div>
+              <div class="w-1/2">14</div>
+            </div>
+          </div>
+          <!-- Row 8 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.40s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">8</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">CONCH v1.5</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 38.0%; width: 26px; height: 26px; background-color: rgba(79, 70, 229, 0.60);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(38.0% + 20px);">6.80</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">9</div>
+              <div class="w-1/2">21</div>
+            </div>
+          </div>
+          <!-- Row 9 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.45s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">9</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">H-optimus-0</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 43.9%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.45);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(43.9% + 16px);">7.39</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">2</div>
+              <div class="w-1/2">17</div>
+            </div>
+          </div>
+          <!-- Row 10 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.50s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">10</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">Phikon</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 47.1%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.35);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(47.1% + 16px);">7.71</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">3</div>
+              <div class="w-1/2">13</div>
+            </div>
+          </div>
+          <!-- Row 11 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.55s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">11</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">Virchow</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 52.8%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.20);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(52.8% + 16px);">8.28</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">2</div>
+              <div class="w-1/2">3</div>
+            </div>
+          </div>
+          <!-- Row 12 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.60s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">12</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">CTransPath</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 53.6%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.30);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(53.6% + 16px);">8.36</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">2</div>
+              <div class="w-1/2">10</div>
+            </div>
+          </div>
+          <!-- Row 13 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.65s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">13</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">CHIEF</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 64.8%; width: 14px; height: 14px; background-color: rgba(79, 70, 229, 0.25);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(64.8% + 14px);">9.48</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">0</div>
+              <div class="w-1/2">6</div>
+            </div>
+          </div>
+          <!-- Row 14 -->
+          <div class="chart-row grid grid-cols-[120px_1fr_110px] md:grid-cols-[200px_1fr_180px] gap-4 items-center py-2.5 md:py-3 rounded-2xl transition-all cursor-default" style="animation-delay: 0.70s">
+            <div class="flex items-center gap-3 md:gap-4 pl-2 md:pl-4">
+              <span class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-slate-500 shrink-0 border border-slate-200">14</span>
+              <span class="font-medium text-slate-700 text-sm md:text-base truncate">Prov-GigaPath</span>
+            </div>
+            <div class="relative h-10">
+              <div class="chart-bubble absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full" style="left: 86.6%; width: 18px; height: 18px; background-color: rgba(79, 70, 229, 0.20);"></div>
+              <div class="rank-val absolute top-1/2 -translate-y-1/2 text-sm md:text-base font-medium text-slate-600 transition-all duration-200" style="left: calc(86.6% + 16px);">11.66</div>
+            </div>
+            <div class="flex text-sm md:text-base text-center font-medium text-slate-700">
+              <div class="w-1/2">2</div>
+              <div class="w-1/2">3</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bottom X-axis label -->
+        <div class="mt-8 text-center text-sm md:text-base font-bold text-slate-600">Mean Rank</div>
+      </div>
+
+      <!-- Footer Legends -->
+      <div class="mt-10 pt-8 border-t-2 border-slate-100 flex flex-col md:flex-row justify-center gap-12 md:gap-24 chart-row" style="animation-delay: 0.8s">
+        <div>
+          <div class="text-sm font-bold text-slate-700 mb-5 text-center md:text-left">Bubble size: Wins (#1 finishes)</div>
+          <div class="flex items-end justify-center md:justify-start gap-5 md:gap-8 h-12">
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-500 shadow-sm" style="width: 14px; height: 14px;"></div><span class="text-sm font-semibold text-slate-500">0</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-500 shadow-sm" style="width: 18px; height: 18px;"></div><span class="text-sm font-semibold text-slate-500">2</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-500 shadow-sm" style="width: 22px; height: 22px;"></div><span class="text-sm font-semibold text-slate-500">4</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-500 shadow-sm" style="width: 26px; height: 26px;"></div><span class="text-sm font-semibold text-slate-500">8</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full bg-indigo-500 shadow-sm" style="width: 40px; height: 40px;"></div><span class="text-sm font-semibold text-slate-500">20</span></div>
+          </div>
+        </div>
+        <div class="w-px bg-slate-200/80 hidden md:block"></div>
+        <div>
+          <div class="text-sm font-bold text-slate-700 mb-5 text-center md:text-left">Bubble color: Top-3 count</div>
+          <div class="flex items-end justify-center md:justify-start gap-5 md:gap-8 h-12">
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full shadow-sm" style="width: 20px; height: 20px; background-color: rgba(79, 70, 229, 0.20);"></div><span class="text-sm font-semibold text-slate-500">3</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full shadow-sm" style="width: 20px; height: 20px; background-color: rgba(79, 70, 229, 0.40);"></div><span class="text-sm font-semibold text-slate-500">14</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full shadow-sm" style="width: 20px; height: 20px; background-color: rgba(79, 70, 229, 0.60);"></div><span class="text-sm font-semibold text-slate-500">26</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full shadow-sm" style="width: 20px; height: 20px; background-color: rgba(79, 70, 229, 0.80);"></div><span class="text-sm font-semibold text-slate-500">37</span></div>
+            <div class="flex flex-col items-center gap-2"><div class="rounded-full shadow-sm" style="width: 20px; height: 20px; background-color: rgba(79, 70, 229, 1.0);"></div><span class="text-sm font-semibold text-slate-500">48</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
