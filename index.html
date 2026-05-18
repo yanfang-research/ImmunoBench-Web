@@ -24,10 +24,10 @@
                 IHC-driven computational pathology benchmark
               </div>
               <h1 class="mt-5 text-3xl md:text-4xl font-bold leading-tight tracking-tight text-slate-700">
-                An Open Benchmark for <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-500 font-extrabold">IHC-driven</span> Computational Pathology
+                ImmunoBench maps the performance landscape of pathology foundation models in <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-500 font-extrabold">immunohistochemistry-centered</span> precision oncology
               </h1>
               <p class="mt-5 text-lg text-slate-600 max-w-3xl leading-[1.7]">
-                A comprehensive benchmarking framework for evaluating foundation models across diverse immunohistochemistry tasks in precision oncology.
+                A large-scale, multi-institutional benchmark shifting the evaluation axis from H&E-based recognition to IHC-centered clinical inference, providing an open ecosystem with curated datasets, standardized protocols, and pre-extracted embeddings.
               </p>
               <div class="mt-8 flex flex-wrap gap-3">
                 <a href="tasks.html" class="btn-primary rounded-2xl px-5 py-3 font-medium text-center">Explore Tasks</a>
@@ -60,6 +60,10 @@
                   <div class="text-3xl text-indigo-600 font-extrabold">13,657 <span class="text-base font-medium text-slate-400 ml-1">Cases</span></div>
                 </div>
                 <div class="flex items-center justify-between px-8 py-5 my-2.5 rounded-2xl bg-white/80 shadow-sm border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:bg-white w-full flex-shrink-0">
+                  <div class="text-sm uppercase tracking-widest text-slate-500 font-bold">Patches</div>
+                  <div class="text-3xl text-indigo-600 font-extrabold">464<span class="text-base font-medium text-slate-400 ml-1">K+</span></div>
+                </div>
+                <div class="flex items-center justify-between px-8 py-5 my-2.5 rounded-2xl bg-white/80 shadow-sm border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:bg-white w-full flex-shrink-0">
                   <div class="text-sm uppercase tracking-widest text-slate-500 font-bold">Multi-Center</div>
                   <div class="text-3xl text-indigo-600 font-extrabold">13 <span class="text-base font-medium text-slate-400 ml-1">Institutions</span></div>
                 </div>
@@ -80,6 +84,10 @@
                 <div class="flex items-center justify-between px-8 py-5 my-2.5 rounded-2xl bg-white/80 shadow-sm border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:bg-white w-full flex-shrink-0">
                   <div class="text-sm uppercase tracking-widest text-slate-500 font-bold">Patients</div>
                   <div class="text-3xl text-indigo-600 font-extrabold">13,657 <span class="text-base font-medium text-slate-400 ml-1">Cases</span></div>
+                </div>
+                <div class="flex items-center justify-between px-8 py-5 my-2.5 rounded-2xl bg-white/80 shadow-sm border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:bg-white w-full flex-shrink-0">
+                  <div class="text-sm uppercase tracking-widest text-slate-500 font-bold">Patches</div>
+                  <div class="text-3xl text-indigo-600 font-extrabold">464<span class="text-base font-medium text-slate-400 ml-1">K+</span></div>
                 </div>
                 <div class="flex items-center justify-between px-8 py-5 my-2.5 rounded-2xl bg-white/80 shadow-sm border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:bg-white w-full flex-shrink-0">
                   <div class="text-sm uppercase tracking-widest text-slate-500 font-bold">Multi-Center</div>
@@ -239,7 +247,7 @@
               <div class="w-12 h-12 rounded-2xl soft-gradient flex items-center justify-center font-bold text-indigo-700 text-lg shrink-0">06</div>
               <h3 class="font-semibold text-lg md:text-xl text-slate-800 leading-tight">Therapeutic Response</h3>
             </div>
-            <p class="text-slate-600 text-sm mt-4 leading-relaxed flex-grow">Predicting treatment efficacy, residual disease status, and clinical decision-making.</p>
+            <p class="text-slate-600 text-sm mt-4 leading-relaxed flex-grow">Predicting treatment efficacy across multiple settings, including chemotherapy, targeted therapy, and immunotherapy.</p>
             <div class="mt-5 pt-4 border-t border-slate-100/60 flex items-center justify-between">
               <div class="flex items-center gap-1.5">
                 <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold bg-purple-50 text-purple-600">HE</span>
@@ -583,27 +591,54 @@
               <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Performance Boundaries</h3>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Task-Dependent Performance</h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Near-saturation on diagnostic tasks, but significant challenges remain for prognosis and treatment response.</p>
+            <p class="text-slate-600 leading-relaxed text-sm">Strong performance on visual cues and spatially coherent patterns, but lower and highly variable on sparse, heterogeneous signals and outcome prediction.</p>
           </div>
           <div class="glass-panel rounded-[28px] p-7 card-hover">
             <div class="flex items-center gap-4 mb-4">
               <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Generalization Gap</h3>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Cross-Center Generalization</h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm">External validation exposes substantial performance drops, highlighting limited cross-center robustness.</p>
+            <p class="text-slate-600 leading-relaxed text-sm">External validation reveals marker-dependent cross-center degradation, highlighting the need for improved robustness in diverse clinical settings.</p>
           </div>
           <div class="glass-panel rounded-[28px] p-7 card-hover">
             <div class="flex items-center gap-4 mb-4">
               <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Architectural Impact</h3>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Architectural & Pretraining Impact</h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Patch-level models outperform WSI-level pipelines. IHC-aware pretraining provides clear molecular advantages.</p>
+            <p class="text-slate-600 leading-relaxed text-sm">Patch-level PFMs generally outperform WSI-level models in local recognition. Notably, IHC-aware and multimodal pretraining provide selective rather than universal benefits.</p>
+          </div>
+          <div class="glass-panel rounded-[28px] p-7 card-hover">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Multi-Stain Integration</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed text-sm">Adding IHC slides to H&E does not consistently improve performance in diagnosis or prognosis, indicating that multi-stain pathology requires explicit modeling of stain identity and cross-stain correspondence.</p>
+          </div>
+          <div class="glass-panel rounded-[28px] p-7 card-hover">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Complementary Ensembles</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed text-sm">Soft-voting ensembles of top-ranked models improve overall mean rank compared with the strongest individual model, showing that existing PFMs encode complementary but incomplete information.</p>
+          </div>
+          <div class="glass-panel rounded-[28px] p-7 card-hover">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Future Directions</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed text-sm">Next-generation PFMs must move beyond generic visual representation toward stain-aware, multi-scale, and biologically structured representation learning to tackle complex clinical endpoints.</p>
           </div>
         </div>
       </section>
