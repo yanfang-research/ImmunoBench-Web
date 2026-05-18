@@ -591,54 +591,27 @@
               <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Task-Dependent Performance</h3>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Performance Boundaries</h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Strong performance on visual cues and spatially coherent patterns, but lower and highly variable on sparse, heterogeneous signals and outcome prediction.</p>
-          </div>
-          <div class="glass-panel rounded-[28px] p-7 card-hover">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-              </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Cross-Center Generalization</h3>
-            </div>
-            <p class="text-slate-600 leading-relaxed text-sm">External validation reveals marker-dependent cross-center degradation, highlighting the need for improved robustness in diverse clinical settings.</p>
+            <p class="text-slate-600 leading-relaxed text-sm">Models excel at spatial patterns but struggle with sparse signals, outcome prediction, and cross-center generalization.</p>
           </div>
           <div class="glass-panel rounded-[28px] p-7 card-hover">
             <div class="flex items-center gap-4 mb-4">
               <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Architectural & Pretraining Impact</h3>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Architectural Impact</h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Patch-level PFMs generally outperform WSI-level models in local recognition. Notably, IHC-aware and multimodal pretraining provide selective rather than universal benefits.</p>
-          </div>
-          <div class="glass-panel rounded-[28px] p-7 card-hover">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Multi-Stain Integration</h3>
-            </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Adding IHC slides to H&E does not consistently improve performance in diagnosis or prognosis, indicating that multi-stain pathology requires explicit modeling of stain identity and cross-stain correspondence.</p>
+            <p class="text-slate-600 leading-relaxed text-sm">Patch-level models dominate local recognition. IHC-aware and multimodal pretraining provide selective, not universal, benefits.</p>
           </div>
           <div class="glass-panel rounded-[28px] p-7 card-hover">
             <div class="flex items-center gap-4 mb-4">
               <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Complementary Ensembles</h3>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Multi-Stain Integration</h3>
             </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Soft-voting ensembles of top-ranked models improve overall mean rank compared with the strongest individual model, showing that existing PFMs encode complementary but incomplete information.</p>
-          </div>
-          <div class="glass-panel rounded-[28px] p-7 card-hover">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-              </div>
-              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Future Directions</h3>
-            </div>
-            <p class="text-slate-600 leading-relaxed text-sm">Next-generation PFMs must move beyond generic visual representation toward stain-aware, multi-scale, and biologically structured representation learning to tackle complex clinical endpoints.</p>
+            <p class="text-slate-600 leading-relaxed text-sm">Simply combining H&E and IHC is insufficient. Ensembles reveal current models encode complementary but incomplete information.</p>
           </div>
         </div>
       </section>
