@@ -78,7 +78,7 @@ function getTaskGroup(taskName = "") {
   if (/survival|recurrence|metastasis|progress|status|days_to|-os\b|-ttf\b|-mfs\b|-rfs\b/.test(t)) return "Progression & Prognosis";
   if (/pcr|residual|therapy|treatment|rcb|adjuvant|cause|event/.test(t)) return "Therapeutic Response";
   if (/-comp/.test(t)) return "Microenvironment";
-  if (/subtype|grading|benign|malignant|cin|staging|testis-pt|testis-infiltration/.test(t) && !/-eber|-bcl2|-cd20|-cd10|-ar|he2|-her2|-er|-pr|-ki-67|-ck|-gata3|-s100|-syn|-pax8|-p40|-ttf1|-cdx2|-psa|-p53|-pd-l1/.test(t)) return "Diagnosis & Grading";
+  if (/subtype|grading|benign|malignant|cin|staging|testis-pt|testis-infiltration|histotype|histology/.test(t) && !/-eber|-bcl2|-cd20|-cd10|-ar|he2|-her2|-er|-pr|-ki-67|-ck|-gata3|-s100|-syn|-pax8|-p40|-ttf1|-cdx2|-psa|-p53|-pd-l1/.test(t)) return "Diagnosis & Grading";
   return "Biomarker Expression";
 }
 
