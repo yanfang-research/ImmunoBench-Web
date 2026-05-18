@@ -1536,7 +1536,7 @@ const DATA = {
           { name: "InUIT", stain: "CD8, CD20, Ki67", disease: "Ovarian Cancer", patients: "204", volume: "1,481 WSIs", url: "https://arxiv.org/pdf/2303.00865"},
           { name: "HistAI", stain: "CD20, CD10, CK7, CD34, S100, TTF1, P63, SYN, PAX8, GATA3, PD-L1, P40", disease: "Breast, Skin, Thorax, Hematologic, Gastrointestinal, Colorectal", patients: "1,388", volume: "1,388 WSIs", url: "https://huggingface.co/histai"},
           { name: "MSKMINDProjectM", stain: "PD-L1", disease: "Lung Cancer", patients: "212", volume: "212 WSIs", url: "https://www.synapse.org/Synapse:syn26642505/wiki/615361"},
-          { name: "HPA10M", stain: "14,708 Types of Gene-encoded Proteins", disease: "Pan-cancer and Normal Tissues", patients: "3,433", volume: "9,682,431 WSIs", url: "https://huggingface.co/datasets/nirschl-lab/hpa10m"},
+          { name: "HPA10M", stain: "14,708 Types of Gene-encoded Proteins", disease: "Pan-cancer and Normal Tissues", patients: "3,433", volume: "9,682,431 Images", url: "https://huggingface.co/datasets/nirschl-lab/hpa10m"},
         ],
         private: [
           { name: "CERVIX-CIN", stain: "HE, P16, Ki67", disease: "Cervical Cancer", patients: "175", volume: "488 WSIs"},
