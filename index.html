@@ -33,6 +33,7 @@
                 <a href="tasks.html" class="btn-primary rounded-2xl px-5 py-3 font-medium text-center">Explore Tasks</a>
                 <a href="models.html" class="btn-secondary rounded-2xl px-5 py-3 font-medium text-center">View Models</a>
                 <a href="datasets.html" class="btn-secondary rounded-2xl px-5 py-3 font-medium text-center">Browse Datasets</a>
+                <a href="#leaderboard" class="btn-secondary rounded-2xl px-5 py-3 font-medium text-center">Leaderboard</a>
                 <a href="https://github.com/yanfang-research/ImmunoBench/pulls" target="_blank" rel="noreferrer" class="btn-secondary rounded-2xl px-5 py-3 font-medium flex items-center justify-center gap-2">
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -288,7 +289,7 @@
   }
 </style>
 
-<section class="container-xl mx-auto px-5 lg:px-8 py-8 mb-12">
+<section id="leaderboard" class="container-xl mx-auto px-5 lg:px-8 py-8 mb-12">
   <div class="mb-8 md:mb-10 pl-2 flex flex-col md:flex-row md:items-end justify-between gap-4">
     <div>
       <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Benchmark Snapshot</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Overall Model Rankings</span></div>
@@ -580,6 +581,42 @@
 
   </div>
 </section>
+
+      <!-- Why ImmunoBench Section -->
+      <section class="container-xl mx-auto px-5 lg:px-8 py-8 mb-16">
+        <div class="mb-8 pl-2">
+          <div class="kicker"><span class="uppercase tracking-widest text-indigo-600">Motivation</span> <span class="text-slate-800 font-bold normal-case text-xl ml-2 tracking-normal">· Why ImmunoBench?</span></div>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="glass-panel rounded-[28px] p-7 card-hover">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">A Critical Blind Spot</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed text-sm">Current models focus on H&E, missing crucial IHC signals needed for real-world clinical decisions. ImmunoBench establishes IHC-centered evaluation as a necessary dimension.</p>
+          </div>
+          <div class="glass-panel rounded-[28px] p-7 card-hover">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">Task-Dependent Landscape</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed text-sm">No single model dominates. While models excel at local IHC signals, complex clinical endpoints remain challenging, requiring better integration of spatial and molecular context.</p>
+          </div>
+          <div class="glass-panel rounded-[28px] p-7 card-hover">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-800 leading-tight">An Open Ecosystem</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed text-sm">More than a benchmark, ImmunoBench is a durable resource offering curated datasets, standardized protocols, and a dynamic leaderboard to drive future model development.</p>
+          </div>
+        </div>
+      </section>
 
       <section class="container-xl mx-auto px-5 lg:px-8 py-8 mb-16">
         <div class="mb-8 pl-2">
